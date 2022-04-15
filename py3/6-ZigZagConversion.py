@@ -27,3 +27,25 @@ class Solution:
             for i in lines:
                 out += i
             return "".join(out)
+
+
+"""---------------------------------------------"""
+
+
+# 2022-4-16 4:10
+# Runtime 60ms(58.1%)
+# Memory 15.2mb(36.0%)
+
+##
+# 嗯 好看多了
+# 虽然慢了但是好爽hhhhh
+###
+
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        lines = [list() for i in range(numRows)]
+        
+        cycle = list(range(numRows)) + list(range(numRows))[1:-1][::-1]
+        for index, char in enumerate(s):
+            lines[cycle[index % len(cycle)]].append(char)
+        return "".join(["".join(line) for line in lines])
