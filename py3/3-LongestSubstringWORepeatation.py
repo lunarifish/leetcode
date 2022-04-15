@@ -33,4 +33,37 @@ class Solution:
                 r += 1
             window -= 1
         return ret
-                    
+ 
+
+ """---------------------------------------------"""
+
+
+# 2022-4-16 2:36
+# Runtime 444ms(10.4%)
+# Memory 15.2mb(28.1%)
+
+##
+# 用滑动窗口再写了一遍
+###
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        def checkUnique(s):
+            exist = set()
+            for i in s:
+                if i not in exist:
+                    exist.add(i)
+                else:
+                    return False
+            return True
+        l, r = 0, 0
+        ret = 0
+        while r <= len(s):
+            if checkUnique(s[l:r]):
+                r += 1
+            else:
+                l += 1
+            if r - l > ret:
+                ret = r - l
+        return ret - 1
+                
