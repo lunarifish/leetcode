@@ -1,6 +1,6 @@
 // 2022-04-20 02:26:57
 // Runtime 1150ms(6.9%)
-// Memory 48mb(69.0)
+// Memory 48mb(69.0%)
 
 class CQueue {
     Stack<Integer> in;
