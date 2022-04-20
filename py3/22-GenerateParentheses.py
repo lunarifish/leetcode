@@ -29,3 +29,34 @@ class Solution:
                     recu(n, s + ")", depth - 1)
         recu(n, "")
         return ret
+
+
+"""---------------------------------------------"""
+
+
+# 2022-4-21 3:35
+# Runtime 32ms(92.7%)
+# Memory 15.2mb(45.5%)
+
+##
+# 跟着第二个题解小改了一下
+# 现在每一种生成都是合法的了 少做了一些无用功
+###
+
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        ret = list()
+        def recu(n, s, l=0, r=0):
+            if l == n and r == n:
+                ret.append(s)
+                return
+            else:
+                if l == n:
+                    recu(n, s + ")" * (l - r), n, n)
+                else:
+                    if l < n:
+                        recu(n, s + "(", l + 1, r)
+                    if r < l:
+                        recu(n, s + ")", l, r + 1)
+        recu(n, "")
+        return ret
