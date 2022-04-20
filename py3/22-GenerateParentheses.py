@@ -50,13 +50,13 @@ class Solution:
             if l == n and r == n:
                 ret.append(s)
                 return
+            elif l == n:
+                ret.append(s + ")" * (l - r))
+                return
             else:
-                if l == n:
-                    recu(n, s + ")" * (l - r), n, n)
-                else:
-                    if l < n:
-                        recu(n, s + "(", l + 1, r)
-                    if r < l:
-                        recu(n, s + ")", l, r + 1)
+                if l < n:
+                    recu(n, s + "(", l + 1, r)
+                if r < l:
+                    recu(n, s + ")", l, r + 1)
         recu(n, "")
         return ret
