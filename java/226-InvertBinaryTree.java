@@ -28,8 +28,7 @@ class Solution {
             return;
         else {
             swapNodes(node);
-            TreeNode[] branch = {node.left, node.right};
-            for(TreeNode next : branch)
+            for(TreeNode next : new TreeNode[] {node.left, node.right});
                 recuInvert(next);
         }
     }
