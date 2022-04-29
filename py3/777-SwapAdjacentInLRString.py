@@ -8,7 +8,7 @@
 
 class Solution:
     def canTransform(self, start: str, end: str) -> bool:
-        if "".join([i for i in start if i != "X"]) != "".join([i for i in end if i != "X"]):
+        if [i for i in start if i != "X"] != [i for i in end if i != "X"]:
             return False
         
         encounterR = 0
